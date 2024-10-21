@@ -61,6 +61,16 @@ Cила покемона: {self.power}
             enemy.hp = 0
             return f"Победа @{self.pokemon_trainer} над @{enemy.pokemon_trainer}! "
 
+def feed(self, feed_interval = 20, hp_increase = 10 ):
+    current_time = datetime.current()  
+    delta_time = timedelete(hours=feed_interval)  
+    if (current_time - self.last_feed_time) > delta_time:
+        self.hp += hp_increase
+        self.last_feed_time = current_time
+        return f"Здоровье покемона увеличено. Текущее здоровье: {self.hp}"
+    else:
+        return f"Следующее время кормления покемона: {current_time+delta_time}"
+
 class Wizard(Pokemon):
   pass
 
